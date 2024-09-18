@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WSR_SESSION1.Models;
 
@@ -46,13 +41,18 @@ namespace WSR_SESSION1.Controllers
         // POST: Patients/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Fio,PassportData,WorkPlace,PolicyNumber,PolicyExpire,PoliceCompany,MedicalCardId,PhotoPath")] Patient patient)
+        public async Task<IActionResult> Create([Bind("Id,Fio,PassportData,WorkPlace,PolicyNumber,PolicyExpire,PolicyCompany,MedicalCardId,PhotoPath")] Patient patient)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(patient);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            foreach (var error in errors)
+            {
+                Console.WriteLine(error.ErrorMessage);
             }
             return View(patient);
         }

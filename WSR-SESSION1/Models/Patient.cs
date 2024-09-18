@@ -2,14 +2,14 @@
 {
     public class Patient
     {
-        public required int Id { get; set; }
-        public required string Fio { get; set; }
-        public required string PassportData { get; set; }
-        public required string WorkPlace { get; set; }
-        public required string PolicyNumber { get; set; }
-        public required DateTime PolicyExpire { get; set; }
-        public required string PoliceCompany { get; set; }
-        public required string MedicalCardId { get; set; }
-        public required string PhotoPath { get; set; }
+        public int Id { get; set; }
+        public string Fio { get; set; }
+        public string PassportData { get; set; }
+        public string WorkPlace { get; set; }
+        public string PolicyNumber { get; set; }
+        public DateOnly PolicyExpire { get; set; }
+        public string PolicyCompany { get; set; }
+        public int MedicalCardId { get; set; }
+        public string PhotoPath { get; set; }
     }
 }

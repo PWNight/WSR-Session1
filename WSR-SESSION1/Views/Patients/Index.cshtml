@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
 
 <h1>Index</h1>
@@ -28,7 +29,7 @@
                 @Html.DisplayNameFor(model => model.PolicyExpire)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PoliceCompany)
+                @Html.DisplayNameFor(model => model.PolicyCompany)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MedicalCardId)
@@ -58,7 +59,7 @@
                 @Html.DisplayFor(modelItem => item.PolicyExpire)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PoliceCompany)
+                @Html.DisplayFor(modelItem => item.PolicyCompany)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MedicalCardId)
@@ -75,3 +76,4 @@
 }
     </tbody>
 </table>
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>
