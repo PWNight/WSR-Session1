@@ -12,45 +12,46 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-controller="Patients" asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Fio" class="control-label">Fio</label>
-                <input asp-for="Fio" class="form-control" />
+                <input asp-for="Fio" name="Fio" class="form-control" />
                 <span asp-validation-for="Fio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PassportData" class="control-label">PassportData</label>
-                <input asp-for="PassportData" class="form-control" />
+                <input asp-for="PassportData" name="PassportData" class="form-control" />
                 <span asp-validation-for="PassportData" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="WorkPlace" class="control-label">WorkPlace</label>
-                <input asp-for="WorkPlace" class="form-control" />
+                <input asp-for="WorkPlace" name="WorkPlace" class="form-control" />
                 <span asp-validation-for="WorkPlace" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PolicyNumber" class="control-label">PolicyNumber</label>
-                <input asp-for="PolicyNumber" class="form-control" />
+                <input asp-for="PolicyNumber" name="PolicyNumber" class="form-control" />
                 <span asp-validation-for="PolicyNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PolicyExpire" class="control-label">PolicyExpire</label>
-                <input asp-for="PolicyExpire" class="form-control" />
+                <input asp-for="PolicyExpire" name="PolicyExpire" class="form-control" />
                 <span asp-validation-for="PolicyExpire" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PolicyCompany" class="control-label">PolicyCompany</label>
-                <input asp-for="PolicyCompany" class="form-control" />
+                <input asp-for="PolicyCompany" name="PolicyCompany" class="form-control" />
                 <span asp-validation-for="PolicyCompany" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MedicalCardId" class="control-label">MedicalCardId</label>
-                <input asp-for="MedicalCardId" class="form-control" />
+                <input asp-for="MedicalCardId" name="MedicalCardId" class="form-control" />
                 <span asp-validation-for="MedicalCardId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PhotoPath" class="control-label">PhotoPath</label>
-                <input asp-for="PhotoPath" class="form-control" />
+                <input asp-for="PhotoPath" name="PhotoPath" class="form-control" />
                 <span asp-validation-for="PhotoPath" class="text-danger"></span>
             </div>
             <div class="form-group">

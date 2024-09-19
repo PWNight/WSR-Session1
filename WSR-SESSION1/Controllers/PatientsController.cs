@@ -4,9 +4,14 @@ using WSR_SESSION1.Models;
 
 namespace WSR_SESSION1.Controllers
 {
-    public class PatientsController(WSRDbContext context) : Controller
+    public class PatientsController : Controller
     {
-        private readonly WSRDbContext _context = context;
+        private readonly WSRDbContext _context;
+
+        public PatientsController(WSRDbContext context)
+        {
+            _context = context;
+        }
 
         // GET: Patients
         public async Task<IActionResult> Index()
@@ -49,11 +54,6 @@ namespace WSR_SESSION1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
-            foreach (var error in errors)
-            {
-                Console.WriteLine(error.ErrorMessage);
-            }
             return View(patient);
         }
 
@@ -76,7 +76,7 @@ namespace WSR_SESSION1.Controllers
         // POST: Patients/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Fio,PassportData,WorkPlace,PolicyNumber,PolicyExpire,PoliceCompany,MedicalCardId,PhotoPath")] Patient patient)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Fio,PassportData,WorkPlace,PolicyNumber,PolicyExpire,PolicyCompany,MedicalCardId,PhotoPath")] Patient patient)
         {
             if (id != patient.Id)
             {
@@ -133,9 +133,9 @@ namespace WSR_SESSION1.Controllers
             if (patient != null)
             {
                 _context.Patients.Remove(patient);
+                await _context.SaveChangesAsync();
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
