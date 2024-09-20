@@ -4,14 +4,9 @@ using WSR_SESSION1.Models;
 
 namespace WSR_SESSION1.Controllers
 {
-    public class HospitalizationsController : Controller
+    public class HospitalizationsController(WSRDbContext context) : Controller
     {
-        private readonly WSRDbContext _context;
-
-        public HospitalizationsController(WSRDbContext context)
-        {
-            _context = context;
-        }
+        private readonly WSRDbContext _context = context;
 
         // GET: Hospitalizations
         public async Task<IActionResult> Index()
