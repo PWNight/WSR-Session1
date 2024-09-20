@@ -31,6 +31,11 @@ namespace WSR_SESSION1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            foreach (var error in errors)
+            {
+                Console.WriteLine(error.ErrorMessage);
+            }
             return View(patient);
         }
         private bool PatientExists(int id)

@@ -36,8 +36,14 @@ namespace WSR_SESSION1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Patients}/{action=Index}/{id?}");
+                    name: "patients",
+                    pattern: "patients/{action=Index}/{id?}",
+                    defaults: new { controller = "Patients" });
+
+                endpoints.MapControllerRoute(
+                    name: "hospitalizations",
+                    pattern: "hospitalizations/{action=Index}/{id?}",
+                    defaults: new { controller = "Hospitalizations" });
             });
         }
     }

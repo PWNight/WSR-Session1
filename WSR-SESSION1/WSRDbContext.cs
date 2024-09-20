@@ -9,5 +9,6 @@ namespace WSR_SESSION1
         {
         }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<WSR_SESSION1.Models.Hospitalization> Hospitalization { get; set; } = default!;
     }
 }
